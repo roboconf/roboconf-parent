@@ -39,7 +39,6 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<roboconf.dev.resources.version>1.0-SNAPSHOT</roboconf.dev.resources.version>
 		<java.compiler.version>1.6</java.compiler.version>
 	</properties>
 		
