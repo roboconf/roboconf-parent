@@ -40,6 +40,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.compiler.version>1.6</java.compiler.version>
+		<build.resources.url>http://roboconf.net/resources/build</build.resources.url>
 	</properties>
 		
 	
@@ -127,8 +128,8 @@
 							<goal>check</goal>
 						</goals>
 						<configuration>
-							<configLocation>http://localhost:4000/resources/build/checkstyle/checkstyle-java-rules.xml</configLocation>
-							<headerLocation>http://localhost:4000/resources/build/checkstyle/header-java.txt</headerLocation>
+							<configLocation>${build.resources.url}/checkstyle/checkstyle-java-rules.xml</configLocation>
+							<headerLocation>${build.resources.url}/checkstyle/header-java.txt</headerLocation>
 							<includes>**\/*.java</includes>
 							<excludes>**\/internal\/**\/*</excludes>
 						</configuration>
@@ -142,8 +143,8 @@
 							<goal>check</goal>
 						</goals>
 						<configuration>
-							<configLocation>http://localhost:4000/resources/build/checkstyle/checkstyle-xml-rules.xml</configLocation>
-							<headerLocation>http://localhost:4000/resources/build/checkstyle/header-xml.txt</headerLocation>
+							<configLocation>${build.resources.url}/checkstyle/checkstyle-xml-rules.xml</configLocation>
+							<headerLocation>${build.resources.url}/checkstyle/header-xml.txt</headerLocation>
 							<includes>**\/*.xml, **\/*.xsd</includes>
 						</configuration>
 					</execution>
@@ -226,7 +227,7 @@
 									<goal>jar</goal>
 								</goals>
 								<configuration>
-									<stylesheetfile>http://localhost:4000/resources/build/javadoc/stylesheet.css</stylesheetfile>
+									<stylesheetfile>${build.resources.url}/javadoc/stylesheet.css</stylesheetfile>
 								</configuration>
 							</execution>
 						</executions>
@@ -325,8 +326,7 @@
 		<connection>scm:git:git@github.com:roboconf/roboconf-parent.git</connection>
 		<developerConnection>scm:git:git@github.com:roboconf/roboconf-parent.git</developerConnection>
 		<url>http://github.com/roboconf/roboconf-parent</url>
-	  <tag>HEAD</tag>
-  </scm>
+	</scm>
 
 	<distributionManagement>
 		<snapshotRepository>
