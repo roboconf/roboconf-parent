@@ -145,6 +145,7 @@
 							<configLocation>${build.resources.url}/checkstyle/checkstyle-xml-rules.xml</configLocation>
 							<headerLocation>${build.resources.url}/checkstyle/header-xml.txt</headerLocation>
 							<includes>**/*.xml, **/*.xsd</includes>
+							<excludes>**/*.properties</excludes>
 						</configuration>
 					</execution>
 				</executions>
