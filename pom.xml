@@ -39,7 +39,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.compiler.version>1.6</java.compiler.version>
+		<java.compiler.version>1.7</java.compiler.version>
 		<build.resources.url>http://roboconf.net/resources/build</build.resources.url>
 	</properties>
 		
