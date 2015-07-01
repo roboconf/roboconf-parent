@@ -41,6 +41,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.compiler.version>1.7</java.compiler.version>
 		<build.resources.url>http://roboconf.net/resources/build</build.resources.url>
+		<javadoc.plugin.version>2.9.1</javadoc.plugin.version>
 	</properties>
 		
 	
@@ -219,7 +220,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>2.9.1</version>
+						<version>${javadoc.plugin.version}</version>
 						<executions>
 							<execution>
 								<id>attach-javadoc</id>
@@ -231,6 +232,26 @@
 								</configuration>
 							</execution>
 						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+		<!-- Add an option for the Javadoc plugin on Java 8 and higher -->
+		<profile>
+			<id>jdoc-for-java8</id>
+			<activation>
+				<jdk>[1.8,)</jdk>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>${javadoc.plugin.version}</version>
+						<configuration>
+							<additionalparam>-Xdoclint:none</additionalparam>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
