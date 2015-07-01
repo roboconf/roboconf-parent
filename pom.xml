@@ -324,6 +324,13 @@
 			<organizationUrl>http://www.liglab.fr</organizationUrl>
 			<timezone>+1</timezone>
 		</developer>
+		<developer>
+			<name>Pierre BOURRET</name>
+			<email>Pierre.Bourret (at) imag.fr</email>
+			<organization>LIG (Université Joseph Fourier)</organization>
+			<organizationUrl>http://www.liglab.fr</organizationUrl>
+			<timezone>+1</timezone>
+		</developer>
 	</developers>
 	
 	<contributors>
