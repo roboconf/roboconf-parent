@@ -25,7 +25,7 @@
 	
 	<groupId>net.roboconf</groupId>
 	<artifactId>roboconf-parent</artifactId>
-	<version>1.5-SNAPSHOT</version>
+	<version>1.5</version>
 	<name>Roboconf :: Parent</name>
 	<description>A solution for elastic deployments</description>
 	<packaging>pom</packaging>
@@ -391,7 +391,7 @@
 		<connection>scm:git:git@github.com:roboconf/roboconf-parent.git</connection>
 		<developerConnection>scm:git:git@github.com:roboconf/roboconf-parent.git</developerConnection>
 		<url>http://github.com/roboconf/roboconf-parent</url>
-		<tag>HEAD</tag>
+		<tag>roboconf-parent-1.5</tag>
 	</scm>
 
 	<distributionManagement>
