@@ -25,7 +25,7 @@
 	
 	<groupId>net.roboconf</groupId>
 	<artifactId>roboconf-parent</artifactId>
-	<version>1.5-SNAPSHOT</version>
+	<version>1.6-SNAPSHOT</version>
 	<name>Roboconf :: Parent</name>
 	<description>A solution for elastic deployments</description>
 	<packaging>pom</packaging>
@@ -236,12 +236,19 @@
 				</plugins>
 			</build>
 		</profile>
-		
-		<!-- Add an option for the Javadoc plugin on Java 8 and higher -->
+
+		<!-- Disable Java 8 Xdoclint checks by default. This profile is active iff:
+		      - Java version is greater or equal to 1.8
+		    AND
+		      - the roboconf.javadoc.check is NOT defined
+		 -->
 		<profile>
-			<id>jdoc-for-java8</id>
+			<id>java8-xdoclint-none</id>
 			<activation>
 				<jdk>[1.8,)</jdk>
+				<property>
+					<name>!roboconf.javadoc.check</name>
+				</property>
 			</activation>
 			<build>
 				<plugins>
@@ -256,7 +263,37 @@
 				</plugins>
 			</build>
 		</profile>
-		
+
+		<!-- Enable some of Java 8 Xdoclint checks. The set of javadoc checks is the content of the
+		     roboconf.javadoc.check property. This profile is active iff:
+		      - Java version is greater or equal to 1.8
+		    AND
+		      - the roboconf.javadoc.check is defined
+		 -->
+		<profile>
+			<id>java8-xdoclint-active</id>
+			<activation>
+				<jdk>[1.8,)</jdk>
+				<property>
+					<name>roboconf.javadoc.check</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>${javadoc.plugin.version}</version>
+						<configuration>
+							<additionalparam>-Xdoclint:reference</additionalparam>
+							<additionalparam>-Xdoclint:html</additionalparam>
+							<additionalparam>-Xdoclint:syntax</additionalparam>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
 		<!-- We also have a profile to sign our artifacts -->
 		<profile>
 			<id>signature</id>
@@ -335,6 +372,13 @@
 			<name>Amadou DIARRA</name>
 			<email>amadou.diarra (at) imag.fr</email>
 			<organization>LIG (Université Grenoble-Alpes)</organization>
+			<organizationUrl>http://www.liglab.fr</organizationUrl>
+			<timezone>+1</timezone>
+		</developer>
+		<developer>
+			<name>Pierre BOURRET</name>
+			<email>Pierre.Bourret (at) imag.fr</email>
+			<organization>LIG (Université Joseph Fourier)</organization>
 			<organizationUrl>http://www.liglab.fr</organizationUrl>
 			<timezone>+1</timezone>
 		</developer>
