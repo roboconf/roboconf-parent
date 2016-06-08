@@ -116,7 +116,7 @@
 				<configuration>
 					<consoleOutput>true</consoleOutput>
 					<logViolationsToConsole>true</logViolationsToConsole>
-					<includeTestSourceDirectory>false</includeTestSourceDirectory>
+					<includeTestSourceDirectory>true</includeTestSourceDirectory>
 				</configuration>
 				
 				<executions>
@@ -136,6 +136,7 @@
 					</execution>
 					
 					<!-- XML Files -->
+					<!-- 
 					<execution>
 						<id>check-xml</id>
                			<phase>process-sources</phase>
@@ -146,9 +147,12 @@
 							<configLocation>${build.resources.url}/checkstyle/checkstyle-xml-rules.xml</configLocation>
 							<headerLocation>${build.resources.url}/checkstyle/header-xml.txt</headerLocation>
 							<includes>**/*.xml, **/*.xsd</includes>
+							<resourceIncludes>**/*.xml, **/*.xsd</resourceIncludes>
 							<excludes>**/*.properties</excludes>
+							<resourceExcludes>**/*.properties</resourceExcludes>
 						</configuration>
 					</execution>
+					 -->
 				</executions>
 			</plugin>
 			
