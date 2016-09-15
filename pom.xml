@@ -67,23 +67,6 @@
 						<target>${java.compiler.version}</target>
 					</configuration>
 				</plugin>
-				
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-enforcer-plugin</artifactId>
-					<version>1.1.1</version>
-					<configuration>
-						<fail>true</fail>
-						<rules><DependencyConvergence /></rules>
-					</configuration>
-					<executions>
-						<execution>
-							<goals>
-								<goal>enforce</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
 			</plugins>
 		</pluginManagement>
 		
@@ -103,6 +86,27 @@
 						<configuration>
 							<ignoreNonCompile>false</ignoreNonCompile>
 							<failOnWarning>false</failOnWarning>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<!-- Enforcer Rules -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>1.1.1</version>
+				<executions>
+					<execution>
+						<id>analyze</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<fail>true</fail>
+							<rules>
+								<DependencyConvergence />
+							</rules>
 						</configuration>
 					</execution>
 				</executions>
