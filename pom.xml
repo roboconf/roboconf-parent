@@ -58,7 +58,7 @@
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>2.4</version>
 				</plugin>
-				
+
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
@@ -66,6 +66,12 @@
 						<source>${java.compiler.version}</source>
 						<target>${java.compiler.version}</target>
 					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.8</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -211,6 +217,8 @@
 	
 			<build>
 				<plugins>
+
+					<!-- Create JAR with sources -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-source-plugin</artifactId>
@@ -225,6 +233,30 @@
 						</executions>
 					</plugin>
 
+					<!-- Download the stylesheet for the javadoc -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>generate-sources</phase>
+								<configuration>
+									<exportAntProperties>true</exportAntProperties>
+									<target>
+										<property name="dir" value="${java.io.tmpdir}/roboconf-javadoc" />
+										<mkdir dir="${dir}" />
+										<property name="javadoc.stylesheet" value="${dir}/roboconf-javadoc.css" />
+										<get src="${build.resources.url}/javadoc/stylesheet.css" dest="${javadoc.stylesheet}" skipexisting="true" />
+									</target>	
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+					<!-- Generate the JAR with the javadoc -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
@@ -236,7 +268,7 @@
 									<goal>jar</goal>
 								</goals>
 								<configuration>
-									<stylesheetfile>${build.resources.url}/javadoc/stylesheet.css</stylesheetfile>
+									<stylesheetfile>${javadoc.stylesheet}</stylesheetfile>
 								</configuration>
 							</execution>
 						</executions>
