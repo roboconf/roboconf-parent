@@ -146,7 +146,6 @@
 					</execution>
 					
 					<!-- XML Files -->
-					<!-- 
 					<execution>
 						<id>check-xml</id>
                			<phase>process-sources</phase>
@@ -156,13 +155,17 @@
 						<configuration>
 							<configLocation>${build.resources.url}/checkstyle/checkstyle-xml-rules.xml</configLocation>
 							<headerLocation>${build.resources.url}/checkstyle/header-xml.txt</headerLocation>
+
+							<includeResources>false</includeResources>
+							<includeTestResources>false</includeTestResources>
+
+							<!-- Process the pom.xml file too -->
 							<includes>**/*.xml, **/*.xsd</includes>
-							<resourceIncludes>**/*.xml, **/*.xsd</resourceIncludes>
-							<excludes>**/*.properties</excludes>
-							<resourceExcludes>**/*.properties</resourceExcludes>
+							<excludes>target/**/*, **/*.properties</excludes>
+							<sourceDirectory>${project.basedir}</sourceDirectory>
+							<testSourceDirectories />
 						</configuration>
 					</execution>
-					 -->
 				</executions>
 			</plugin>
 			
