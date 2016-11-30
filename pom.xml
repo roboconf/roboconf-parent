@@ -34,7 +34,7 @@
 	
 	<groupId>net.roboconf</groupId>
 	<artifactId>roboconf-parent</artifactId>
-	<version>1.10-SNAPSHOT</version>
+	<version>1.10</version>
 	<name>Roboconf :: Parent</name>
 	<description>A solution for elastic deployments</description>
 	<packaging>pom</packaging>
@@ -51,8 +51,8 @@
 		<java.compiler.version>1.7</java.compiler.version>
 		<build.resources.url>http://roboconf.net/resources/build</build.resources.url>
 		<javadoc.plugin.version>2.9.1</javadoc.plugin.version>
-		<checkstyle.xml.exclusions></checkstyle.xml.exclusions>
-		<checkstyle.xml.inclusions></checkstyle.xml.inclusions>
+		<checkstyle.xml.exclusions />
+		<checkstyle.xml.inclusions />
 	</properties>
 		
 	
@@ -483,7 +483,7 @@
 		<connection>scm:git:git@github.com:roboconf/roboconf-parent.git</connection>
 		<developerConnection>scm:git:git@github.com:roboconf/roboconf-parent.git</developerConnection>
 		<url>http://github.com/roboconf/roboconf-parent</url>
-		<tag>HEAD</tag>
+		<tag>roboconf-parent-1.10</tag>
 	</scm>
 
 	<distributionManagement>
