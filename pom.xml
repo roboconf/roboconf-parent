@@ -23,7 +23,7 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-  -->
+-->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
@@ -51,6 +51,8 @@
 		<java.compiler.version>1.7</java.compiler.version>
 		<build.resources.url>http://roboconf.net/resources/build</build.resources.url>
 		<javadoc.plugin.version>2.9.1</javadoc.plugin.version>
+		<checkstyle.xml.exclusions></checkstyle.xml.exclusions>
+		<checkstyle.xml.inclusions></checkstyle.xml.inclusions>
 	</properties>
 		
 	
@@ -154,7 +156,7 @@
 						</configuration>
 					</execution>
 					
-					<!-- XML Files -->
+					<!-- Root XML Files -->
 					<execution>
 						<id>check-xml</id>
                			<phase>process-sources</phase>
@@ -169,8 +171,8 @@
 							<includeTestResources>false</includeTestResources>
 
 							<!-- Process the pom.xml file too -->
-							<includes>**/*.xml, **/*.xsd</includes>
-							<excludes>**/target/**/*, **/*.properties</excludes>
+							<includes>**/pom.xml, **/*.xsd, ${checkstyle.xml.inclusions}</includes>
+							<excludes>**/target/**/*, **/*.properties, ${checkstyle.xml.exclusions}</excludes>
 							<sourceDirectory>${project.basedir}</sourceDirectory>
 							<testSourceDirectories />
 						</configuration>
