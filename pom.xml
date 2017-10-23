@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-   Copyright 2013-2016 Linagora, Université Joseph Fourier, Floralis
+   Copyright 2013-2017 Linagora, Université Joseph Fourier, Floralis
 
    The present code is developed in the scope of the joint LINAGORA -
    Université Joseph Fourier - Floralis research program and is designated
@@ -83,6 +83,12 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
 					<version>1.8</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.sonarsource.scanner.maven</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>3.3.0.603</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -291,7 +297,7 @@
 			</build>
 		</profile>
 
-		<!-- Disable Java 8 Xdoclint checks by default. This profile is active iff:
+		<!-- Disable Java 8 Xdoclint checks by default. This profile is active if:
 		      - Java version is greater or equal to 1.8
 		    AND
 		      - the roboconf.javadoc.check is NOT defined
